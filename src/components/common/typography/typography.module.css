@@ -1,0 +1,49 @@
+.heading {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.h1 {
+    font-size: 2.5rem;
+}
+
+.h2 {
+    font-size: 2rem;
+}
+
+.h3 {
+    font-size: 1.75rem;
+}
+
+.h4 {
+    font-size: 1.5rem;
+}
+
+.h5 {
+    font-size: 1.25rem;
+}
+
+.h6 {
+    font-size: 1rem;
+}
+
+.paragraph {
+    margin: 0 0 0.35em;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    overflow-wrap: break-word;
+}
+
+.p1 {
+    font-size: 1.5rem;
+}
+
+.p2 {
+    font-size: 1.25rem;
+}
+
+.p3 {
+    font-size: 1rem;
+}

@@ -1,0 +1,14 @@
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+.errorMessage {
+    margin: 0;
+    color: red;
+}

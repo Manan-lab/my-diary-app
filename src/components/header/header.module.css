@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7f7f9;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
+
+.greeting{
+    margin: 0;
+}

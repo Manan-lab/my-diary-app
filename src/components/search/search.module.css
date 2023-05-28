@@ -1,0 +1,13 @@
+.searchContainer {
+    display: flex;
+}
+
+.searchInput{
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+.searchButton{
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+}

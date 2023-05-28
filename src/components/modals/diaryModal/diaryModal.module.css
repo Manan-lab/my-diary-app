@@ -1,0 +1,10 @@
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.descriptionContainer {
+    border-radius: 5px;
+    padding: 10px;
+}
