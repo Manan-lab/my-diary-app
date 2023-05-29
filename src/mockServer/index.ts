@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import { Diary, User } from './entities';
-import { getCurrentDate } from './utils';
-import { foundSearchTerm } from '../utils';
+import { findSearchTerm, getCurrentDate } from './utils';
 import { type DiaryType, type LoginCredentialsType, type NewDiaryType, type RegisterCredentialsType, type UserInfoType } from '../types';
 import StorageApi from './storageApi';
 
@@ -126,7 +125,7 @@ export default class MockServer {
     let ownDiaries = diaries.filter(d => d.owner === userId);
 
     if (!_.isEmpty(search)) {
-      ownDiaries = ownDiaries.filter(d => foundSearchTerm(search, d.title) || foundSearchTerm(search, d.description));
+      ownDiaries = ownDiaries.filter(d => findSearchTerm(search, d.title) || findSearchTerm(search, d.description));
     }
 
     return await Promise.resolve(ownDiaries);

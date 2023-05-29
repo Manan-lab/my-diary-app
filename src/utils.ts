@@ -26,8 +26,3 @@ export function isValidEmail (value: string): boolean {
 
   return emailRegex.test(value);
 }
-
-export function foundSearchTerm (searchTerm: string, textToSearch: string): boolean {
-  const regex = new RegExp(searchTerm, 'i');
-  return regex.test(textToSearch);
-}
