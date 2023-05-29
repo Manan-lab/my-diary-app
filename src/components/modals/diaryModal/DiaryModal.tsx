@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import _ from 'lodash';
 import Input from '../../common/input/Input';
 import Button from '../../common/button/Button';
+import Typography from '../../common/typography/Typography';
 import { type DiaryType, type NewDiaryType } from '../../../types';
 import styles from './diaryModal.module.css';
 
@@ -11,6 +12,7 @@ interface DiaryModalProps {
 }
 
 const DiaryModal: React.FC<DiaryModalProps> = ({ handleSave, diary }) => {
+  const [diaryTitleValidationMessage, setDiaryTitleValidationMessage] = useState<string>('');
   const [diaryData, setDiaryData] = useState<DiaryType | NewDiaryType>(
     {
       title: '',
@@ -32,6 +34,15 @@ const DiaryModal: React.FC<DiaryModalProps> = ({ handleSave, diary }) => {
     setDiaryData(updatedDiary);
   };
 
+  const handleSaveChanges = (): void => {
+    if (diaryData.title === '') {
+      setDiaryTitleValidationMessage('Title is required.');
+    } else {
+      setDiaryTitleValidationMessage('');
+      handleSave(diaryData);
+    }
+  };
+
   return (
     <div className={styles.modalContainer}>
       <label htmlFor="title">Title:</label>
@@ -41,6 +52,9 @@ const DiaryModal: React.FC<DiaryModalProps> = ({ handleSave, diary }) => {
         value={diaryData.title}
         handleChange={(evt) => { handleChangeDiaryData(evt.target.value, 'title'); }}
       />
+      {(diaryTitleValidationMessage !== '') && (
+        <Typography variant="p3" className={styles.errorMessage}>{diaryTitleValidationMessage}</Typography>
+      )}
       <label htmlFor="description">Description:</label>
       <Input
         rows={5}
@@ -52,7 +66,7 @@ const DiaryModal: React.FC<DiaryModalProps> = ({ handleSave, diary }) => {
       />
       <Button
         variant='info'
-        onClick={() => { handleSave(diaryData); }}
+        onClick={handleSaveChanges}
       >
         Save
       </Button>

@@ -7,6 +7,7 @@ import Button from '../../components/common/button/Button';
 import DiaryCard from '../../components/diaryCard/DiaryCard';
 import ModalWrapper from '../../components/common/modalWrapper/ModalWrapper';
 import DiaryModal from '../../components/modals/diaryModal/DiaryModal';
+import Typography from '../../components/common/typography/Typography';
 import { type NewDiaryType } from '../../types';
 import Api from '../../api';
 import styles from './diaryPage.module.css';
@@ -79,9 +80,13 @@ const DiaryPage: React.FC = observer(() => {
         <Search handleSearch={handleSearch} />
       </div>
       <div className={styles.cardsContainer}>
-        {diaryStore.diaries.map(d => (
-          <DiaryCard key={d.id} data={d} handleDelete={handleDiaryDelete} />
-        ))}
+        {
+          (diaryStore.diaries.length > 0)
+            ? diaryStore.diaries.map(d => (
+              <DiaryCard key={d.id} data={d} handleDelete={handleDiaryDelete} />
+            ))
+            : <Typography variant="h1">{"You don't have any entry. To create click on Create Diary"}</Typography>
+        }
       </div>
       {
         showDiaryModal && (
