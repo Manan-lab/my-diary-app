@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import _ from 'lodash';
 import Input from '../../common/input/Input';
 import Button from '../../common/button/Button';
 import { type RegisterCredentialsType } from '../../../types';
@@ -34,13 +35,13 @@ const RegisterModal: React.FC<ModalProps> = ({ handleSave }) => {
     if (userData != null) {
       const { name, email, password } = userData;
 
-      if (email === '') {
+      if (_.isEmpty(email)) {
         setEmailValidationMessage('Email is required.');
       } else if (!isValidEmail(email)) {
         setEmailValidationMessage('Invalid email format.');
-      } else if (name === '') {
+      } else if (_.isEmpty(name)) {
         setNameValidationMessage('Name is required.');
-      } else if (password === '') {
+      } else if (_.isEmpty(password)) {
         setPasswordValidationMessage('Password is required.');
       } else if (password.length < 6) {
         setPasswordValidationMessage('Password length must be more than 5.');

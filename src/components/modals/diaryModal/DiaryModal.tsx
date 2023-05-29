@@ -35,7 +35,7 @@ const DiaryModal: React.FC<DiaryModalProps> = ({ handleSave, diary }) => {
   };
 
   const handleSaveChanges = (): void => {
-    if (diaryData.title === '') {
+    if (_.isEmpty(diaryData.title)) {
       setDiaryTitleValidationMessage('Title is required.');
     } else {
       setDiaryTitleValidationMessage('');

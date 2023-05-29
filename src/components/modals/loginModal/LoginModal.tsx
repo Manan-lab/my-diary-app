@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import _ from 'lodash';
 import Input from '../../common/input/Input';
 import Button from '../../common/button/Button';
 import Typography from '../../common/typography/Typography';
@@ -33,11 +34,11 @@ const LoginModal: React.FC<LoginModalProps> = ({ handleSave }) => {
     if (userData != null) {
       const { email, password } = userData;
 
-      if (email === '') {
+      if (_.isEmpty(email)) {
         setEmailValidationMessage('Email is required.');
       } else if (!isValidEmail(email)) {
         setEmailValidationMessage('Invalid email format.');
-      } else if (password === '') {
+      } else if (_.isEmpty(password)) {
         setPasswordValidationMessage('Password is required.');
       } else {
         setEmailValidationMessage('');
