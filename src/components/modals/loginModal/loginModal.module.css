@@ -12,3 +12,7 @@ label {
     margin: 0;
     color: red;
 }
+
+.errorContainer {
+    border: 2px solid red;
+}

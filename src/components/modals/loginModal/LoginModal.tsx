@@ -53,6 +53,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ handleSave }) => {
       <Input
         id="email"
         type="email"
+        className={`${emailValidationMessage !== '' ? styles.errorContainer : ''}`}
         value={userData.email}
         handleChange={(evt) => { handleUserDataChange(evt.target.value, 'email'); }}
       />
@@ -63,6 +64,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ handleSave }) => {
       <Input
         id="password"
         type='password'
+        className={`${passwordValidationMessage !== '' ? styles.errorContainer : ''}`}
         value={userData.password}
         handleChange={(evt) => { handleUserDataChange(evt.target.value, 'password'); }}
       />

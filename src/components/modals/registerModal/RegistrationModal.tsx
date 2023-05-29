@@ -59,6 +59,7 @@ const RegisterModal: React.FC<ModalProps> = ({ handleSave }) => {
       <Input
         id="email"
         type="email"
+        className={`${emailValidationMessage !== '' ? styles.errorContainer : ''}`}
         value={userData.email}
         handleChange={(evt) => { handleUserDataChange(evt.target.value, 'email'); }}
       />
@@ -69,6 +70,7 @@ const RegisterModal: React.FC<ModalProps> = ({ handleSave }) => {
       <Input
         id="name"
         type="text"
+        className={`${nameValidationMessage !== '' ? styles.errorContainer : ''}`}
         value={userData.name}
         handleChange={(evt) => { handleUserDataChange(evt.target.value, 'name'); }}
       />
@@ -79,6 +81,7 @@ const RegisterModal: React.FC<ModalProps> = ({ handleSave }) => {
       <Input
         id="password"
         type="password"
+        className={`${passwordValidationMessage !== '' ? styles.errorContainer : ''}`}
         value={userData.password}
         handleChange={(evt) => { handleUserDataChange(evt.target.value, 'password'); }}
       />

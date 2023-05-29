@@ -49,6 +49,7 @@ const DiaryModal: React.FC<DiaryModalProps> = ({ handleSave, diary }) => {
       <Input
         id="title"
         type="text"
+        className={`${diaryTitleValidationMessage !== '' ? styles.errorContainer : ''}`}
         value={diaryData.title}
         handleChange={(evt) => { handleChangeDiaryData(evt.target.value, 'title'); }}
       />

@@ -12,3 +12,7 @@
 .errorMessage {
     color: red;
 }
+
+.errorContainer {
+    border: 2px solid red;
+}
