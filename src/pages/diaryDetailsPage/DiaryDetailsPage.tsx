@@ -58,50 +58,59 @@ const DiaryDetailsPage: React.FC = observer(() => {
   };
 
   return (
-    <div className={styles.diaryContainer}>
-      {_.isNil(diary)
-        ? <Typography variant="h1" textAlign='center'>No diary foud</Typography>
-        : <>
-          <Typography variant="h3" textAlign='center'>
-            {diary.title}
-          </Typography>
-          <Typography variant="p2">
-            {diary.description}
-          </Typography>
-          <Typography variant="p3" >
+    <>
+      <Button
+        variant='warning'
+        className={styles.backToHomeButton}
+        onClick={() => { navigate('/diary'); }}
+      >
+        Back to home page
+      </Button>
+      <div className={styles.diaryContainer}>
+        {_.isNil(diary)
+          ? <Typography variant="h1" textAlign='center'>No diary foud</Typography>
+          : <>
+            <Typography variant="h3" textAlign='center'>
+              {diary.title}
+            </Typography>
+            <Typography variant="p2">
+              {diary.description}
+            </Typography>
+            <Typography variant="p3" >
             Created At: {diary.created_date}
-          </Typography>
-          <Typography variant="p3">
+            </Typography>
+            <Typography variant="p3">
             Updated At: {diary.updated_date}
-          </Typography>
-          <div className={styles.diaryFooter}>
-            <Button
-              onClick={() => { setShowDiaryModal(true); }}
-              variant="info"
-            >
+            </Typography>
+            <div className={styles.diaryFooter}>
+              <Button
+                onClick={() => { setShowDiaryModal(true); }}
+                variant="info"
+              >
               Edit Diary
-            </Button>
-            <Button
-              variant="error"
-              onClick={() => { handleDiaryDelete(diary.id); }}
-            >
+              </Button>
+              <Button
+                variant="error"
+                onClick={() => { handleDiaryDelete(diary.id); }}
+              >
               Delete
-            </Button>
-          </div>
-          {
-            showDiaryModal && (
-              <ModalWrapper
-                title='Edit Diary'
-                content={DiaryModal}
-                modalProps={{ diary }}
-                handleClose={() => { setShowDiaryModal(false); }}
-                handleSave={handleDiarySave}
-              />
-            )
-          }
-        </>
-      }
-    </div>
+              </Button>
+            </div>
+            {
+              showDiaryModal && (
+                <ModalWrapper
+                  title='Edit Diary'
+                  content={DiaryModal}
+                  modalProps={{ diary }}
+                  handleClose={() => { setShowDiaryModal(false); }}
+                  handleSave={handleDiarySave}
+                />
+              )
+            }
+          </>
+        }
+      </div>
+    </>
   );
 });
 
